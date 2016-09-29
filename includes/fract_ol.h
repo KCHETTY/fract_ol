@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/29 14:34:49 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/09/29 14:38:53 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define WIN_H 500
 # define WIN_W 700
 
-typedef struct	s_manbrot
+typedef struct	s_fract
 {
 	double		c_real;
 	double		c_im;
@@ -41,7 +41,7 @@ typedef struct	s_manbrot
 	double		old_real;
 	double		old_im;
 
-}				t_manbrot;
+}				t_fract;
 
 typedef	struct	s_mlx
 {
@@ -67,7 +67,7 @@ typedef	struct	s_mlx
 typedef	struct	s_global
 {
 	t_mlx		mlx;
-	t_manbrot	brot;
+	t_fract		fract;
 
 }				t_global;
 
