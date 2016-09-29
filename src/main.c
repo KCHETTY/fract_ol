@@ -5,97 +5,127 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/27 12:06:11 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/28 13:54:25 by kchetty          ###   ########.fr       */
+/*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
+/*   Updated: 2016/09/29 12:29:01 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-void	calculations(t_glob *g)
+void	init(t_global *g)
 {
-	double y = 0;
-	double x = 0;
-	int	r; 
-	int green; 
-	int	b;
-	r = 0;
-	g = 0;
-	b = 0;
-	//each iteration, it calculates: new = old*old + c, where c is a constant and old starts at current pixel
-	  double zoom = 1, moveX = -0.5, moveY = 0; //you can change these to zoom and change position
-	  //int color; //the RGB color value for the pixel
-	  int maxIterations = 128; //after how much iterations the function should stop
+	g->brot.c_real = -0.7;
+	g->brot.c_im = 0.27015;
+	g->brot.new_real = 0;
+	g->brot.new_im = 0;
+	g->brot.old_real = 0;
+	g->brot.old_im = 0;
+	g->mlx.x = 0;
+	g->mlx.y = 0;
+	g->mlx.maxiterations = 128;
+}
 
-	    //draw the fractal
-	x = 0;
-	y = 0;
-	printf("TESTL\n");
-	while(y < WIN_H)
-	{
-		while (x < WIN_W)
+int		quitwin(void)
+{
+	exit(0);
+}
+
+void	calc(t_global *g)
+{
+
+	double movex, movey;
+	int i;
+	
+	movex = -0.5;
+	movey = 0;
+	//while (1)
+	//{
+		while (g->mlx.y < WIN_H)
 		{
-			printf("Tesy\n");
-			//calculate the initial real and imaginary part of z, based on the pixel location and zoom and position values
-			g->brot.cReal = 1.5 * (x - WIN_W/ 2) / (0.5 * zoom * WIN_W) + moveX;
-			printf("jfshs f\n");
-			g->brot.cImaginary = (y - WIN_H / 2) / (0.5 * zoom * WIN_H) + moveY;
-			printf("NEW");
-			g->brot.newReal = g->brot.newImaginary = g->brot.oldReal = g->brot.oldImaginary = 0; //these should start at 0,0
-	     	 //i will represent the number of iterations
-	      	int i;
-		  	i = 0;
-	      	//start the iteration process
-			printf("FRSE");
-			while (i < maxIterations)
-	      	{
-	        	//remember value of previous iteration
-	        	g->brot.oldReal = g->brot.newReal;
-	        	g->brot.oldImaginary = g->brot.newImaginary;
-	        	//the actual iteration, the real and imaginary part are calculated
-	        	g->brot.newReal = g->brot.oldReal * g->brot.oldReal - 
-					g->brot.oldImaginary * g->brot.oldImaginary + g->brot.cReal;
-	        	g->brot.newImaginary = 2 * g->brot.oldReal * 
-					g->brot.oldImaginary + g->brot.cImaginary;
-			   	//if the point is outside the circle with radius 2: stop
-	        	if((g->brot.newReal * g->brot.newReal + g->brot.newImaginary * 
-							g->brot.newImaginary) > 4)
-				break;
-				i++;
-	  		}
-			printf("test\n");
-	      //use color model conversion to get rainbow palette, make brightness black if maxIterations      //draw the pixel
-		  	r = i % 256;
-		    green = i % 256;
-			b = i % 256;
-			g->mlx.data[((int)x + (int)y * WIN_W) * 4 + 2] = (unsigned char)r;
-			g->mlx.data[((int)x + (int)y * WIN_W) * 4 + 1] = (unsigned char)green;
-			g->mlx.data[((int)x + (int)y * WIN_W) * 4] = (unsigned char)b;	   
-		  	x++;
-	    }
-		y++;
+			g->mlx.x = 0;
+			while (g->mlx.x < WIN_W)
+			{
+				g->brot.c_real = 1.5 * (g->mlx.x - (WIN_W / 2)) / 
+					(0.5 * 1 * WIN_W) + movex;
+				g->brot.c_im = (g->mlx.y - (WIN_H / 2)) / 
+					(0.5 * 1 * WIN_H) + movey;
+
+				g->brot.new_real = 0;
+				g->brot.new_im = 0;
+				g->brot.old_real = 0;
+				g->brot.old_im = 0;
+			
+				i = 0;	
+				while (i < g->mlx.maxiterations)
+				{
+					g->brot.old_real = g->brot.new_real;
+					g->brot.old_im = g->brot.new_im;
+					g->brot.new_real = g->brot.old_real * g->brot.old_real - 
+						g->brot.old_im * g->brot.old_im + g->brot.c_real;
+					g->brot.new_im = 2 * g->brot.old_real * g->brot.old_im + 
+						g->brot.c_im;
+					if((g->brot.new_real * g->brot.new_real + g->brot.new_im * 
+								g->brot.new_im) > 4) 
+						break;
+					i++;
+				}
+				g->mlx.data[((int)g->mlx.x * 4) + 
+					((int)g->mlx.y * g->mlx.size_line) + 1] = i % 255;
+				g->mlx.data[((int)g->mlx.x * 4) + 
+					((int)g->mlx.y * g->mlx.size_line)] = i % 225;
+				g->mlx.data[((int)g->mlx.x * 4) + 
+					((int)g->mlx.y * g->mlx.size_line) + 2] = i % 155;
+				g->mlx.x++;
+			}
+			g->mlx.y++;
+		}
+	//}		
+}
+
+int		key_press(int keycode, t_global *g)
+{
+	if (keycode == KB_ESC)
+		exit(0);
+	if (keycode == KB_SPACE)
+	{
+		g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
+		g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
+				&g->mlx.endian);
+		calc(g);
+		mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
 	}
+	return (0);
+}
+
+int		key_release(int keycode)
+{
+	if (keycode == KB_LEFT)
+		printf("Hey\n");
+	/*if (keycode == KB_RIGHT)
+		g->p.right = 0;
+	if (keycode == KB_UP)
+		g->p.up = 0;
+	if (keycode == KB_DOWN)
+		g->p.down = 0;*/
+	return (0);
 }
 
 int		main(int argc, char **argv)
 {
-	t_glob	g;
+	t_global	g;
 
 	if (argc == 2)
 	{
-		printf("%s", argv[0]);
+		printf("%s\n", argv[0]);
+		init(&g);
 		g.mlx.mlx = mlx_init();
 		g.mlx.win = mlx_new_window(g.mlx.mlx, WIN_W, WIN_H, "Fract_ol");
-		g.mlx.img = mlx_new_image(g.mlx.mlx, WIN_W, WIN_H);
-		g.mlx.data = mlx_get_data_addr(g.mlx.img, &g.mlx.bpp, &g.mlx.size_line
-				, &g.mlx.endian);
-		calculations(&g);
-		mlx_put_image_to_window(g.mlx.mlx, g.mlx.win, g.mlx.img, 0, 0);
+		mlx_hook(g.mlx.win, 2, (1L << 0), &key_press, &g);
+		mlx_hook(g.mlx.win, 3, (1L << 1), &key_release, NULL);
+		mlx_hook(g.mlx.win, 17, 0L, &quitwin, &g.mlx);
 		mlx_loop(g.mlx.mlx);
-
-
 	}
 	else
-		ft_putstr("CHODE!!");
-	return (0);
+		printf("CHODE!!");	
+
 }

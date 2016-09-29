@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/28 13:54:22 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/09/29 12:28:59 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,18 +21,24 @@
 # include <unistd.h>
 # include <string.h>
 
-# define WIN_H 320
-# define WIN_W 320
+# define KB_ESC 53
+# define KB_SPACE 49
+# define KB_UP 65362
+# define KB_DOWN 65364
+# define KB_LEFT 65361
+# define KB_RIGHT 65363
+
+# define WIN_H 500
+# define WIN_W 700
 
 typedef struct	s_manbrot
 {
-	double		cReal;
-	double		cImaginary;
-	double		newReal;
-	double		newImaginary;
-	double		oldReal;
-	double		oldImaginary;
-	int			size_line;
+	double		c_real;
+	double		c_im;
+	double		new_real;
+	double		new_im;
+	double		old_real;
+	double		old_im;
 
 }				t_manbrot;
 
@@ -40,8 +46,8 @@ typedef	struct	s_mlx
 {
 	void			*mlx;
 	void			*win;
-	int				p_x;
-	int				p_y;
+	int				x;
+	int				y;
 	void			*img;
 	int				**map;
 	char			*data;							
@@ -49,15 +55,19 @@ typedef	struct	s_mlx
 	int				bpp;
 	unsigned int	color;
 	int				size_line;
+	int				red;
+	int				green;
+	int				blue;
 	int				endian;
+	int				maxiterations;
 
 }				t_mlx;
 
-typedef	struct	s_glob
+typedef	struct	s_global
 {
 	t_mlx		mlx;
 	t_manbrot	brot;
 
-}				t_glob;
+}				t_global;
 
 #endif
