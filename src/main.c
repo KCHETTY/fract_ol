@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/29 12:29:01 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/09/29 14:34:47 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init(t_global *g)
 	g->brot.old_im = 0;
 	g->mlx.x = 0;
 	g->mlx.y = 0;
-	g->mlx.maxiterations = 128;
+	g->mlx.maxiterations = 300;
 }
 
 int		quitwin(void)
@@ -30,56 +30,97 @@ int		quitwin(void)
 	exit(0);
 }
 
+void	calc2(t_global *g)
+{
+	double movex, movey;
+	int i;
+
+	movex = 0;
+	movey = 0;
+
+	while (g->mlx.y < WIN_H)
+	{
+		g->mlx.x = 0;
+		while (g->mlx.x < WIN_W)
+		{
+			g->brot.new_real = 1.5 * (g->mlx.x - WIN_W / 2) / (0.5 * 1 * WIN_W) + movex;
+			g->brot.new_im = (g->mlx.y - WIN_H / 2) / (0.5 * 1 * WIN_H) + movey;
+			i = 0;
+			while (i < g->mlx.maxiterations)
+			{
+				g->brot.old_real = g->brot.new_real;
+				g->brot.old_im = g->brot.new_im;
+				g->brot.new_real = g->brot.old_real * g->brot.old_real - 
+					g->brot.old_im * g->brot.old_im + g->brot.c_real;
+				g->brot.new_im = 2 * g->brot.old_real * g->brot.old_im + 
+					g->brot.c_im;
+				if((g->brot.new_real * g->brot.new_real + g->brot.new_im *
+							g->brot.new_im) > 4)
+					break;
+				i++;
+			}
+			g->mlx.data[((int)g->mlx.x * 4) +
+				((int)g->mlx.y * g->mlx.size_line) + 1] = i % 255;
+			g->mlx.data[((int)g->mlx.x * 4) +
+				((int)g->mlx.y * g->mlx.size_line)] = i % 225;
+			g->mlx.data[((int)g->mlx.x * 4) +
+				((int)g->mlx.y * g->mlx.size_line) + 2] = i % 155;
+			g->mlx.x++;
+		}
+		g->mlx.y++;
+	}
+}
+
 void	calc(t_global *g)
 {
 
 	double movex, movey;
 	int i;
-	
+
 	movex = -0.5;
 	movey = 0;
 	//while (1)
 	//{
-		while (g->mlx.y < WIN_H)
+	while (g->mlx.y < WIN_H)
+	{
+		g->mlx.x = 0;
+		while (g->mlx.x < WIN_W)
 		{
-			g->mlx.x = 0;
-			while (g->mlx.x < WIN_W)
-			{
-				g->brot.c_real = 1.5 * (g->mlx.x - (WIN_W / 2)) / 
-					(0.5 * 1 * WIN_W) + movex;
-				g->brot.c_im = (g->mlx.y - (WIN_H / 2)) / 
-					(0.5 * 1 * WIN_H) + movey;
+			g->brot.c_real = 1.5 * (g->mlx.x - (WIN_W / 2)) /
+				(0.5 * 1 * WIN_W) + movex;
+			g->brot.c_im = (g->mlx.y - (WIN_H / 2)) /
+				(0.5 * 1 * WIN_H) + movey;
 
-				g->brot.new_real = 0;
-				g->brot.new_im = 0;
-				g->brot.old_real = 0;
-				g->brot.old_im = 0;
-			
-				i = 0;	
-				while (i < g->mlx.maxiterations)
-				{
-					g->brot.old_real = g->brot.new_real;
-					g->brot.old_im = g->brot.new_im;
-					g->brot.new_real = g->brot.old_real * g->brot.old_real - 
-						g->brot.old_im * g->brot.old_im + g->brot.c_real;
-					g->brot.new_im = 2 * g->brot.old_real * g->brot.old_im + 
-						g->brot.c_im;
-					if((g->brot.new_real * g->brot.new_real + g->brot.new_im * 
-								g->brot.new_im) > 4) 
-						break;
-					i++;
-				}
-				g->mlx.data[((int)g->mlx.x * 4) + 
-					((int)g->mlx.y * g->mlx.size_line) + 1] = i % 255;
-				g->mlx.data[((int)g->mlx.x * 4) + 
-					((int)g->mlx.y * g->mlx.size_line)] = i % 225;
-				g->mlx.data[((int)g->mlx.x * 4) + 
-					((int)g->mlx.y * g->mlx.size_line) + 2] = i % 155;
-				g->mlx.x++;
+			g->brot.new_real = 0;
+			g->brot.new_im = 0;
+			g->brot.old_real = 0;
+			g->brot.old_im = 0;
+
+			i = 0;
+			while (i < g->mlx.maxiterations)
+			{
+				g->brot.old_real = g->brot.new_real;
+				g->brot.old_im = g->brot.new_im;
+				g->brot.new_real = g->brot.old_real * g->brot.old_real -
+					g->brot.old_im * g->brot.old_im + g->brot.c_real;
+				g->brot.new_im = 2 * g->brot.old_real * g->brot.old_im +
+					g->brot.c_im;
+				if((g->brot.new_real * g->brot.new_real + g->brot.new_im *
+							g->brot.new_im) > 4)
+					break;
+				i++;
 			}
-			g->mlx.y++;
+			g->mlx.data[((int)g->mlx.x * 4) +
+				((int)g->mlx.y * g->mlx.size_line) + 1] = i % 255;
+			g->mlx.data[((int)g->mlx.x * 4) +
+				((int)g->mlx.y * g->mlx.size_line)] = i % 225;
+			g->mlx.data[((int)g->mlx.x * 4) +
+				((int)g->mlx.y * g->mlx.size_line) + 2] = i % 155;
+			g->mlx.x++;
 		}
-	//}		
+		g->mlx.y++;
+	}
+	//}
 }
 
 int		key_press(int keycode, t_global *g)
@@ -91,7 +132,13 @@ int		key_press(int keycode, t_global *g)
 		g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
 		g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
 				&g->mlx.endian);
-		calc(g);
+		if (ft_strcmp("Mandelbrot", g->brot.str) == 0)
+			calc(g);
+		else if (ft_strcmp("Julia", g->brot.str) == 0)
+			calc2(g);
+		else
+			printf("Error\n");
+
 		mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
 	}
 	return (0);
@@ -102,11 +149,11 @@ int		key_release(int keycode)
 	if (keycode == KB_LEFT)
 		printf("Hey\n");
 	/*if (keycode == KB_RIGHT)
-		g->p.right = 0;
-	if (keycode == KB_UP)
-		g->p.up = 0;
-	if (keycode == KB_DOWN)
-		g->p.down = 0;*/
+	  g->p.right = 0;
+	  if (keycode == KB_UP)
+	  g->p.up = 0;
+	  if (keycode == KB_DOWN)
+	  g->p.down = 0;*/
 	return (0);
 }
 
@@ -114,6 +161,7 @@ int		main(int argc, char **argv)
 {
 	t_global	g;
 
+	g.brot.str = argv[1];
 	if (argc == 2)
 	{
 		printf("%s\n", argv[0]);
@@ -126,6 +174,6 @@ int		main(int argc, char **argv)
 		mlx_loop(g.mlx.mlx);
 	}
 	else
-		printf("CHODE!!");	
+		printf("CHODE!!");
 
 }

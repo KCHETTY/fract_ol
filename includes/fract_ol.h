@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/29 12:28:59 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/09/29 14:34:49 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ typedef struct	s_manbrot
 	double		c_im;
 	double		new_real;
 	double		new_im;
+	char		*str;
 	double		old_real;
 	double		old_im;
 
