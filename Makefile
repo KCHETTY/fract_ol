@@ -6,7 +6,7 @@
 #    By: arnovan- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/25 11:55:33 by arnovan-          #+#    #+#              #
-#    Updated: 2016/09/27 12:12:12 by kchetty          ###   ########.fr        #
+#    Updated: 2016/09/30 08:59:35 by kchetty          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,10 @@ PATH_SRC= ./src/
 
 PATH_HD= -I includes/
 
-SRC = $(PATH_SRC)main.c
+SRC = $(PATH_SRC)main.c $(PATH_SRC)julia.c $(PATH_SRC)mandelbrot.c \
+	  $(PATH_SRC)controls.c
 
-OBJ = main.o
+OBJ = main.o controls.o mandelbrot.o julia.o
 
 $(NAME):
 	@echo "Compiling binaries..."

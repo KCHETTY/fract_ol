@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/29 14:38:53 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/09/30 08:59:40 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@
 # define KB_LEFT 65361
 # define KB_RIGHT 65363
 
+# define ZOOM 2
+
 # define WIN_H 500
 # define WIN_W 700
 
@@ -40,6 +42,7 @@ typedef struct	s_fract
 	char		*str;
 	double		old_real;
 	double		old_im;
+	int			zoom;
 
 }				t_fract;
 
@@ -70,5 +73,20 @@ typedef	struct	s_global
 	t_fract		fract;
 
 }				t_global;
+
+//julia.c
+void	Julia(t_global *g);
+
+//mandelbrot.c
+void	Mandelbrot(t_global *g);
+
+//main.c
+int		main(int argc, char **argv);
+void	init(t_global *g);
+
+//controls.c
+int		key_press(int keycode, t_global *g);
+int		key_release(int keycode);
+int		quitwin(void);
 
 #endif
