@@ -6,7 +6,7 @@
 #    By: arnovan- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/25 11:55:33 by arnovan-          #+#    #+#              #
-#    Updated: 2016/10/04 08:14:59 by kchetty          ###   ########.fr        #
+#    Updated: 2016/10/04 09:15:11 by kchetty          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,9 +31,11 @@ PATH_SRC= ./src/
 PATH_HD= -I includes/
 
 SRC = $(PATH_SRC)main.c $(PATH_SRC)ft_julia.c $(PATH_SRC)ft_mandelbrot.c \
-	  $(PATH_SRC)ft_controls.c $(PATH_SRC)ft_mouse_hook.c
+	  $(PATH_SRC)ft_controls.c $(PATH_SRC)ft_mouse_hook.c \
+	  $(PATH_SRC)ft_draw.c $(PATH_SRC)ft_colours.c
 
-OBJ = main.o ft_controls.o ft_mandelbrot.o ft_julia.o ft_mouse_hook.o
+OBJ = main.o ft_controls.o ft_mandelbrot.o ft_julia.o ft_mouse_hook.o \
+	  ft_colours.o ft_draw.o
 
 $(NAME):
 	@echo "Compiling binaries..."

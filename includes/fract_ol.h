@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/04 08:22:51 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/04 10:00:02 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,11 +90,18 @@ int		main(int argc, char **argv);
 void	init(t_global *g);
 
 //controls.c
+void	re_init(t_global *g);
 int		key_press(int keycode, t_global *g);
 int		key_release(int keycode);
 int		quitwin(void);
 
 //mouse_hook.c
-int		mouse_hook(int keycode);
+int		mouse_hook(int keycode, t_global *g);
+
+//colours.c
+void	get_colour(t_global *g, int i);
+
+//draw.c
+void	draw(t_global *g);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:30 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/04 08:21:21 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/04 09:15:53 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,7 @@ void	Julia(t_global *g)
 					break;
 				i++;
 			}
-			g->mlx.data[((int)g->mlx.x * 4) +
-				((int)g->mlx.y * g->mlx.size_line) + 1] = i % 255;
-			g->mlx.data[((int)g->mlx.x * 4) +
-				((int)g->mlx.y * g->mlx.size_line)] = i % 225;
-			g->mlx.data[((int)g->mlx.x * 4) +
-				((int)g->mlx.y * g->mlx.size_line) + 2] = i % 155;
+			get_colour(g, i);
 			g->mlx.x++;
 		}
 		g->mlx.y++;
