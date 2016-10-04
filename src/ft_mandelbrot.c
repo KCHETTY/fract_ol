@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/30 08:46:23 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/30 08:54:55 by kchetty          ###   ########.fr       */
+/*   Created: 2016/10/04 08:09:46 by kchetty           #+#    #+#             */
+/*   Updated: 2016/10/04 08:20:54 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,8 @@
 
 void	Mandelbrot(t_global *g)
 {
-
-	double movex, movey;
 	int i;
 
-	movex = -0.5;
-	movey = 0;
 	//while (1)
 	//{
 	while (g->mlx.y < WIN_H)
@@ -28,9 +24,9 @@ void	Mandelbrot(t_global *g)
 		while (g->mlx.x < WIN_W)
 		{
 			g->fract.c_real = 1.5 * (g->mlx.x - (WIN_W / 2)) /
-				(0.5 * ZOOM * WIN_W) + movex;
+				(0.5 * g->fract.zoom * WIN_W) + g->fract.move_x;
 			g->fract.c_im = (g->mlx.y - (WIN_H / 2)) /
-				(0.5 * ZOOM * WIN_H) + movey;
+				(0.5 * g->fract.zoom * WIN_H) + g->fract.move_y;
 
 			g->fract.new_real = 0;
 			g->fract.new_im = 0;

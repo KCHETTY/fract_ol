@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   ft_julia.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/09/30 08:41:13 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/30 08:54:47 by kchetty          ###   ########.fr       */
+/*   Created: 2016/10/04 08:09:30 by kchetty           #+#    #+#             */
+/*   Updated: 2016/10/04 08:21:21 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,7 @@
 
 void	Julia(t_global *g)
 {
-	double movex, movey;
 	int i;
-
-	movex = 0;
-	movey = 0;
 
 	while (g->mlx.y < WIN_H)
 	{
@@ -26,9 +22,9 @@ void	Julia(t_global *g)
 		while (g->mlx.x < WIN_W)
 		{
 			g->fract.new_real = 1.5 * (g->mlx.x - WIN_W / 2) / (0.5 *
-					ZOOM * WIN_W) + movex;
+					g->fract.zoom * WIN_W) + g->fract.move_x;
 			g->fract.new_im = (g->mlx.y - WIN_H / 2) / (0.5 *
-					ZOOM * WIN_H) + movey;
+					g->fract.zoom * WIN_H) + g->fract.move_y;
 			i = 0;
 			while (i < g->mlx.maxiterations)
 			{

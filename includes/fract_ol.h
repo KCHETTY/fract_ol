@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/09/30 08:59:40 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/04 08:22:51 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,15 @@
 
 # define KB_ESC 53
 # define KB_SPACE 49
-# define KB_UP 65362
-# define KB_DOWN 65364
-# define KB_LEFT 65361
-# define KB_RIGHT 65363
+# define KB_UP 126
+# define KB_DOWN 125
+# define KB_LEFT 124
+# define KB_RIGHT 123
 
-# define ZOOM 2
+# define ZOOM 1
+
+# define SCROLL_UP 5
+# define SCROLL_DOWN 6
 
 # define WIN_H 500
 # define WIN_W 700
@@ -42,6 +45,8 @@ typedef struct	s_fract
 	char		*str;
 	double		old_real;
 	double		old_im;
+	double		move_x;
+	double		move_y;
 	int			zoom;
 
 }				t_fract;
@@ -88,5 +93,8 @@ void	init(t_global *g);
 int		key_press(int keycode, t_global *g);
 int		key_release(int keycode);
 int		quitwin(void);
+
+//mouse_hook.c
+int		mouse_hook(int keycode);
 
 #endif
