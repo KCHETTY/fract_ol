@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/04 13:20:59 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/05 08:14:00 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	re_init(t_global *g)
 
 int		key_press(int keycode, t_global *g)
 {
+	mlx_destroy_image (g->mlx.mlx, g->mlx.img);
 	g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
 	g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
 			&g->mlx.endian);
