@@ -17,7 +17,7 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	double relx;
 	double rely;
 	
-	mlx_destroy_image (g->mlx.mlx, g->mlx.img);
+//	mlx_destroy_image (g->mlx.mlx, g->mlx.img);
 	g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
 	g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
 			&g->mlx.endian);
@@ -30,13 +30,13 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	printf("%f and %f\n", relx, rely);
 	//re_init(g);
 
-	if (mouse_move == SCROLL_UP)
+	if (mouse_move == L_SCROLL_UP)
 	{
 		g->fract.zoom *= 0.2;
 		g->fract.move_x += 0.2 * (relx / (WIN_W * g->fract.zoom));
 		g->fract.move_x += 0.2 * (relx / (WIN_W * g->fract.zoom));
 	}
-	if (mouse_move == SCROLL_DOWN)
+	else if (mouse_move == L_SCROLL_DOWN)
 	{
 		g->fract.zoom /= 0.2;
 		g->fract.move_x -= (relx / (WIN_W * g->fract.zoom));

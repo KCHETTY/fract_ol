@@ -29,6 +29,15 @@
 # define KB_LEFT 124
 # define KB_RIGHT 123
 
+# define L_KB_ESC 65307
+# define L_KB_SPACE 32
+# define L_KB_UP 65362
+# define L_KB_DOWN 65364
+# define L_KB_RIGHT 65361
+# define L_KB_LEFT 65363
+# define L_SCROLL_UP 4
+# define L_SCROLL_DOWN 5
+ 
 # define ZOOM 1
 
 # define SCROLL_UP 5
@@ -105,5 +114,8 @@ void	get_colour2(t_global *g);
 
 //draw.c
 void	draw(t_global *g);
+
+//fractal3.c
+void	burning_ship(t_global *g);
 
 #endif

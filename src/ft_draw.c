@@ -19,7 +19,7 @@ void	draw(t_global *g)
 	else if (ft_strcmp("Julia", g->fract.str) == 0)
 		Julia(g);
 	else if (ft_strcmp("Test", g->fract.str) == 0)
-		printf("Error\n");
+		burning_ship(g);
 	else
 		printf("Error\n");
 }

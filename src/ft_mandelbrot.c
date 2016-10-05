@@ -12,7 +12,7 @@
 
 #include "fract_ol.h"
 
-int		mandelbrot_colour(t_global *g)
+int		mandelbrot_iterations(t_global *g)
 {
 	int i; 
 
@@ -73,7 +73,7 @@ void	Mandelbrot(t_global *g)
 			  }
 			  i++;
 			  }*/
-			if (!mandelbrot_colour(g))
+			if (!mandelbrot_iterations(g))
 				get_colour2(g);
 			g->mlx.x++;
 		}

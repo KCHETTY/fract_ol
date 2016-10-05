@@ -12,7 +12,7 @@
 
 #include "fract_ol.h"
 
-int		julia_colour(t_global *g)
+int		julia_iterations(t_global *g)
 {
 	int i;
 
@@ -28,7 +28,6 @@ int		julia_colour(t_global *g)
 		if(sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im *
 					g->fract.new_im)  > 3.0)
 		{
-			printf("NEW\n");
 			get_colour(g, i);
 			return (1);
 		}
@@ -66,11 +65,8 @@ void	Julia(t_global *g)
 				}
 				i++;
 			}*/
-			if (!julia_colour(g))
-			{
-				printf("Black\n");
+			if (!julia_iterations(g))
 				get_colour2(g);
-			}
 			g->mlx.x++;
 		}
 		g->mlx.y++;

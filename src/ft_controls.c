@@ -31,22 +31,22 @@ void	re_init(t_global *g)
 
 int		key_press(int keycode, t_global *g)
 {
-	mlx_destroy_image (g->mlx.mlx, g->mlx.img);
+//	mlx_destroy_image (g->mlx.mlx, g->mlx.img);
 	g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
 	g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
 			&g->mlx.endian);
 	
 	re_init(g);
 
-	if (keycode == KB_ESC)
+	if (keycode == L_KB_ESC)
 		exit(0);
-	if (keycode == KB_LEFT)
+	if (keycode == L_KB_LEFT)
 		g->fract.move_x -= 0.4 / ZOOM;
-	if (keycode == KB_RIGHT)
+	if (keycode == L_KB_RIGHT)
 		g->fract.move_x += 0.4 / ZOOM;
-	if (keycode == KB_UP)
+	if (keycode == L_KB_UP)
 		g->fract.move_y += 0.4 / ZOOM;
-	if (keycode == KB_DOWN)
+	if (keycode == L_KB_DOWN)
 		g->fract.move_y -= 0.4 / ZOOM;
 	//if (keycode == )
 	//if (keycode == )
