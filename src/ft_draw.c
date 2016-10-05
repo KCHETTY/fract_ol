@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:53:23 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/04 09:43:02 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/05 07:34:25 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,5 +19,7 @@ void	draw(t_global *g)
 	else if (ft_strcmp("Julia", g->fract.str) == 0)
 		Julia(g);
 	else if (ft_strcmp("Test", g->fract.str) == 0)
+		printf("Error\n");
+	else
 		printf("Error\n");
 }

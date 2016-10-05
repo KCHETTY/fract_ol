@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/04 10:00:02 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/05 07:34:29 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int		key_release(int keycode);
 int		quitwin(void);
 
 //mouse_hook.c
-int		mouse_hook(int keycode, t_global *g);
+int		mouse_hook(int mouse_move, int x, int y, t_global *g);
 
 //colours.c
 void	get_colour(t_global *g, int i);
