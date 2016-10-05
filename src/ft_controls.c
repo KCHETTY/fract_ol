@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/05 08:14:00 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/05 08:44:06 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,10 @@ int		key_press(int keycode, t_global *g)
 		g->fract.move_y += 0.4 / ZOOM;
 	if (keycode == KB_DOWN)
 		g->fract.move_y -= 0.4 / ZOOM;
-
+	//if (keycode == )
+	//if (keycode == )
+	//if (keycode == )	
+		
 	/*if (ft_strcmp("Mandelbrot", g->fract.str) == 0)
 		Mandelbrot(g);
 	else if (ft_strcmp("Julia", g->fract.str) == 0)

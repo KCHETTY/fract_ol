@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/05 07:51:49 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/05 10:15:25 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <string.h>
+# include <math.h>
 
 # define KB_ESC 53
 # define KB_SPACE 49
@@ -100,6 +101,7 @@ int		mouse_hook(int mouse_move, int x, int y, t_global *g);
 
 //colours.c
 void	get_colour(t_global *g, int i);
+void	get_colour2(t_global *g);
 
 //draw.c
 void	draw(t_global *g);

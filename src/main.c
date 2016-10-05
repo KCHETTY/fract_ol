@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/05 08:14:38 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/05 09:28:45 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int		main(int argc, char **argv)
 		mlx_hook(g.mlx.win, 3, (1L << 1), &key_release, NULL);
 		mlx_hook(g.mlx.win, 17, 0L, &quitwin, &g.mlx);
 		mlx_mouse_hook(g.mlx.win, &mouse_hook, &g);
+
 		mlx_loop(g.mlx.mlx);
 	}
 	else
