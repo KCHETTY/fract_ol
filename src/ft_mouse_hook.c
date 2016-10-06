@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:10:01 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 07:30:13 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 07:42:30 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,6 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	double relx;
 	double rely;
 	
-	/*mlx_destroy_image (g->mlx.mlx, g->mlx.img);
-	g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
-	g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
-			&g->mlx.endian);*/
-
 	printf("%d\n %d and %d\n", mouse_move, x, y);
 	
 	relx = x - (WIN_W / 2);
@@ -44,7 +39,5 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	}
 
 	new_image(g);
-
-	//mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
 	return (0);
 }

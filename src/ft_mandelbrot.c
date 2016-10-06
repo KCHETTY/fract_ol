@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:46 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/05 10:15:22 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 07:45:12 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,6 @@ int		mandelbrot_iterations(t_global *g)
 
 void	Mandelbrot(t_global *g)
 {
-
-	//while (1)
-	//{
 	while (g->mlx.y < WIN_H)
 	{
 		g->mlx.x = 0;
@@ -56,28 +53,10 @@ void	Mandelbrot(t_global *g)
 			g->fract.old_real = 0;
 			g->fract.old_im = 0;
 
-			/*i = 0;
-			  while (i < g->mlx.maxiterations)
-			  {
-			  g->fract.old_real = g->fract.new_real;
-			  g->fract.old_im = g->fract.new_im;
-			  g->fract.new_real = g->fract.old_real * g->fract.old_real -
-			  g->fract.old_im * g->fract.old_im + g->fract.c_real;
-			  g->fract.new_im = 2 * g->fract.old_real * g->fract.old_im +
-			  g->fract.c_im;
-			  if((g->fract.new_real * g->fract.new_real + g->fract.new_im *
-			  g->fract.new_im) > 4)
-			  {
-			  get_colour(g, i);
-			  break;
-			  }
-			  i++;
-			  }*/
 			if (!mandelbrot_iterations(g))
 				get_colour2(g);
 			g->mlx.x++;
 		}
 		g->mlx.y++;
 	}
-	//}
 }

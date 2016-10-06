@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:30 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/05 10:15:20 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 07:44:02 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,23 +48,6 @@ void	Julia(t_global *g)
 					g->fract.zoom * WIN_W) + g->fract.move_x;
 			g->fract.new_im = (g->mlx.y - WIN_H / 2) / (0.5 *
 					g->fract.zoom * WIN_H) + g->fract.move_y;
-			/*i = 0;
-			while (i < g->mlx.maxiterations)
-			{
-				g->fract.old_real = g->fract.new_real;
-				g->fract.old_im = g->fract.new_im;
-				g->fract.new_real = g->fract.old_real * g->fract.old_real -
-					g->fract.old_im * g->fract.old_im + g->fract.c_real;
-				g->fract.new_im = 2 * g->fract.old_real * g->fract.old_im +
-					g->fract.c_im;
-				if(sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im *
-							g->fract.new_im)  > 3.0)
-				{
-					get_colour(g, i);
-					break;
-				}
-				i++;
-			}*/
 			if (!julia_iterations(g))
 				get_colour2(g);
 			g->mlx.x++;

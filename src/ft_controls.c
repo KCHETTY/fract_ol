@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 07:27:05 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 07:46:39 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ void	re_init(t_global *g)
 
 int		key_press(int keycode, t_global *g)
 {
-/*	mlx_destroy_image (g->mlx.mlx, g->mlx.img);
-	g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
-	g->mlx.data = mlx_get_data_addr(g->mlx.img, &g->mlx.bpp, &g->mlx.size_line,
-			&g->mlx.endian);*/
 	
 	re_init(g);
 
@@ -52,17 +48,8 @@ int		key_press(int keycode, t_global *g)
 	//if (keycode == )
 	//if (keycode == )	
 		
-	/*if (ft_strcmp("Mandelbrot", g->fract.str) == 0)
-		Mandelbrot(g);
-	else if (ft_strcmp("Julia", g->fract.str) == 0)
-		Julia(g);
-	else if (ft_strcmp("Test", g->fract.str) == 0)
-		printf("Error\n");*/
 
 	new_image(g);
-
-	//mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
-
 	return (0);
 }
 
