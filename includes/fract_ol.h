@@ -59,8 +59,11 @@ typedef struct	s_fract
 	double		move_x;
 	double		move_y;
 	double		zoom;
+	double		win_w;
+	double		win_h;
 	double		point_x;
 	double		point_y;
+	int			lock_state;
 	double		mapped_point_x;
 	double		mapped_point_y;
 	int			oldx;

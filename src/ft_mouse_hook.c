@@ -27,14 +27,14 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	if (g->fract.zoom == 0)
 		g->fract.zoom = 0.1;
 
-	if (mouse_move == SCROLL_UP)
+	if (mouse_move == L_SCROLL_UP)
 	{
 		printf("HI\n");
 		g->fract.zoom *= 1.2;
 		g->fract.move_x += 0.625 * (relx / (WIN_W * g->fract.zoom));
 		g->fract.move_y += 0.625 * (relx / (WIN_W * g->fract.zoom));
 	}
-	else if (mouse_move == SCROLL_DOWN)
+	else if (mouse_move == L_SCROLL_DOWN)
 	{
 		g->fract.zoom /= 1.2;
 		g->fract.move_x -= (relx / (WIN_W * g->fract.zoom));
@@ -54,21 +54,17 @@ void	map_mouse(t_global *g, double range_min, double range_max)
 	range = range_max - range_min;
 	if (range < 0)
 		range = 1.0F;
-	g->fract.mapped_point_x = range_min + ((double)g->fract.point_x
+	g->fract.c_real = range_min + ((double)g->fract.point_x
 			/ (double)WIN_W) * range;
-	g->fract.mapped_point_y = range_min + ((double)g->fract.point_y
+	g->fract.c_im = range_min + ((double)g->fract.point_y
 			/ (double)WIN_H) * range;
 }
 
 int		mouse_move(int x, int y, t_global *g)
 {
-	int c_x;
-	int	c_y;
 
-	c_x = 0;
-	c_y = 0;
 	if (x <= WIN_W && x >= 0
-			&& y <= WIN_H && y >= 0) //&& !env->lock_state)
+			&& y <= WIN_H && y >= 0 && !env->lock_state)
 	{
 		if (g->fract.zoom == 1)
 		{
@@ -79,16 +75,17 @@ int		mouse_move(int x, int y, t_global *g)
 		{
 			if ((float)abs(g->fract.oldx - x) >= g->fract.zoom * 2.0)
 			{
-				c_x = (g->fract.oldx - x > 0) ? c_x - 1 : c_x + 1;
+				g->fract.win_w = (g->fract.oldx - x > 0) ? g->fract.win_w - 1 : g->fract.win_w + 1;
 				g->fract.oldx = x;
 			}
 			if ((float)abs(g->fract.oldy - y) >= g->fract.zoom * 2.0)
 			{
-				c_y = (g->fract.oldy - y > 0) ? c_y - 1 : c_y + 1;
+				g->fract.win_h = (g->fract.oldy - y > 0) ? g->fract.win_h - 1 : g->fract.win_h + 1;
 				g->fract.oldy = y;
 			}
 		}
 		map_mouse(g, -1.0F, 1.0F);
+
 		new_image(g);
 	}
 	return (0);

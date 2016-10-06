@@ -36,12 +36,17 @@ void	init(t_global *g)
 	g->fract.new_real = 0;
 	g->fract.new_im = 0;
 	g->fract.old_real = 0;
+//	g->fract.mapped_point_x = -0.7;
+//	g->fract.mapped_point_y = -0.27015;
+	g->fract.win_h = WIN_H;
+	g->fract.win_w = WIN_W;
 	g->fract.old_im = 0;
 	g->mlx.x = 0;
+	g->fract.lock_state = 0;
 	g->fract.move_y = 0;
 	g->fract.move_x = 0;
 	g->mlx.y = 0;
-	g->mlx.maxiterations = 500;
+	g->mlx.maxiterations = 150;
 }
 
 int		main(int argc, char **argv)

@@ -36,15 +36,15 @@ int		key_press(int keycode, t_global *g)
 
 	printf("%d\n", keycode);
 
-	if (keycode == KB_ESC)
+	if (keycode == L_KB_ESC)
 		exit(0);
-	if (keycode == KB_LEFT)
+	if (keycode == L_KB_LEFT)
 		g->fract.move_x -= 0.4 / ZOOM;
-	if (keycode == KB_RIGHT)
+	if (keycode == L_KB_RIGHT)
 		g->fract.move_x += 0.4 / ZOOM;
-	if (keycode == KB_UP)
+	if (keycode == L_KB_UP)
 		g->fract.move_y += 0.4 / ZOOM;
-	if (keycode == KB_DOWN)
+	if (keycode == L_KB_DOWN)
 		g->fract.move_y -= 0.4 / ZOOM;
 	if (keycode == KB_R)
 	{
@@ -52,6 +52,8 @@ int		key_press(int keycode, t_global *g)
 		g->fract.move_y = 0;
 		g->fract.zoom = ZOOM;
 	}
+	if (keycode == KB_T)
+		g->fract.lock_state = !g->fract.lock_state;
 	//if (keycode == )
 	//if (keycode == )	
 		

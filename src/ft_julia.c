@@ -39,6 +39,8 @@ int		julia_iterations(t_global *g)
 void	Julia(t_global *g)
 {
 
+	printf("IM HERE\n");
+
 	while (g->mlx.y < WIN_H)
 	{
 		g->mlx.x = 0;

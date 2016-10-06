@@ -12,7 +12,7 @@
 
 NAME=fract_ol
 
-CC=clang
+CC=gcc
 
 CFLAGS=-Wall -Wextra -Werror -g
 
