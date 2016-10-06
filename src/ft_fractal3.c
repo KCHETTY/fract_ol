@@ -45,3 +45,15 @@ void	burning_ship(t_global *g)
 		g->mlx.y++;
 	}
 }
+
+
+int		expose(t_env *env)
+{
+	if (env->win && env->img.img)
+	{
+		ft_printf("exposing");
+		mlx_clear_window(0, env->win);
+		mlx_put_image_to_window(env->mlx, env->win, env->img.img, 0, 0);
+	}
+	return (0);
+}
