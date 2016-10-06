@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:53:23 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 07:46:09 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 08:00:44 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,4 @@ void	draw(t_global *g)
 		Julia(g);
 	else if (ft_strcmp("Test", g->fract.str) == 0)
 		burning_ship(g);
-	else
-		printf("Error\n");
 }
