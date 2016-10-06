@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 07:46:39 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 09:12:22 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		key_press(int keycode, t_global *g)
 	
 	re_init(g);
 
+	printf("%d\n", keycode);
+
 	if (keycode == KB_ESC)
 		exit(0);
 	if (keycode == KB_LEFT)
@@ -44,7 +46,12 @@ int		key_press(int keycode, t_global *g)
 		g->fract.move_y += 0.4 / ZOOM;
 	if (keycode == KB_DOWN)
 		g->fract.move_y -= 0.4 / ZOOM;
-	//if (keycode == )
+	if (keycode == KB_R)
+	{
+		g->fract.move_x = 0;
+		g->fract.move_y = 0;
+		g->fract.zoom = ZOOM;
+	}
 	//if (keycode == )
 	//if (keycode == )	
 		
