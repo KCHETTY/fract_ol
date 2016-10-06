@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:53:23 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 08:00:44 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 09:18:01 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	draw(t_global *g)
 {
-	if (ft_strcmp("Mandelbrot", g->fract.str) == 0)
+	if (ft_strcmp("A", g->fract.str) == 0)
 		Mandelbrot(g);
-	else if (ft_strcmp("Julia", g->fract.str) == 0)
+	else if (ft_strcmp("B", g->fract.str) == 0)
 		Julia(g);
-	else if (ft_strcmp("Test", g->fract.str) == 0)
+	else if (ft_strcmp("C", g->fract.str) == 0)
 		burning_ship(g);
 }

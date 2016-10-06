@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 09:12:25 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 10:23:24 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define ZOOM 1
 
 # define SCROLL_UP 5
-# define SCROLL_DOWN 6
+# define SCROLL_DOWN 4
 
 # define WIN_H 500
 # define WIN_W 700
@@ -58,7 +58,13 @@ typedef struct	s_fract
 	double		old_im;
 	double		move_x;
 	double		move_y;
-	int			zoom;
+	double		zoom;
+	double		point_x;
+	double		point_y;
+	double		mapped_point_x;
+	double		mapped_point_y;
+	int			oldx;
+	int			oldy;
 
 }				t_fract;
 
@@ -108,6 +114,7 @@ int		quitwin(void);
 
 //mouse_hook.c
 int		mouse_hook(int mouse_move, int x, int y, t_global *g);
+int     mouse_move(int x, int y, t_global *g);
 
 //colours.c
 void	get_colour(t_global *g, int i);

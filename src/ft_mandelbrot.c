@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:46 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 09:12:21 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 09:24:31 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void	Mandelbrot(t_global *g)
 	if (g->fract.move_x == 0)
 		g->fract.move_x = -0.5;
 
+	printf("ZOOM: %f\n", g->fract.zoom);
 	while (g->mlx.y < WIN_H)
 	{
 		g->mlx.x = 0;
