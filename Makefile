@@ -6,13 +6,13 @@
 #    By: arnovan- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/25 11:55:33 by arnovan-          #+#    #+#              #
-#    Updated: 2016/10/04 09:15:11 by kchetty          ###   ########.fr        #
+#    Updated: 2016/10/06 07:25:01 by kchetty          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fract_ol
 
-CC=gcc
+CC=clang
 
 CFLAGS=-Wall -Wextra -Werror -g
 
@@ -32,10 +32,11 @@ PATH_HD= -I includes/
 
 SRC = $(PATH_SRC)main.c $(PATH_SRC)ft_julia.c $(PATH_SRC)ft_mandelbrot.c \
 	  $(PATH_SRC)ft_controls.c $(PATH_SRC)ft_mouse_hook.c \
-	  $(PATH_SRC)ft_draw.c $(PATH_SRC)ft_colours.c $(PATH_SRC)ft_fractal3.c
+	  $(PATH_SRC)ft_draw.c $(PATH_SRC)ft_colours.c $(PATH_SRC)ft_fractal3.c \
+	  $(PATH_SRC)ft_redraw.c
 
 OBJ = main.o ft_controls.o ft_mandelbrot.o ft_julia.o ft_mouse_hook.o \
-	  ft_colours.o ft_draw.o ft_fractal3.o
+	  ft_colours.o ft_draw.o ft_fractal3.o ft_redraw.o
 
 $(NAME):
 	@echo "Compiling binaries..."

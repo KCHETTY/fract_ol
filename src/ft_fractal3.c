@@ -47,7 +47,7 @@ void	burning_ship(t_global *g)
 }
 
 
-int		expose(t_env *env)
+/*int		expose(t_env *env)
 {
 	if (env->win && env->img.img)
 	{
@@ -56,4 +56,4 @@ int		expose(t_env *env)
 		mlx_put_image_to_window(env->mlx, env->win, env->img.img, 0, 0);
 	}
 	return (0);
-}
+}*/

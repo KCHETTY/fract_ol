@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/05 10:15:25 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/06 07:30:16 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,8 @@ void	draw(t_global *g);
 
 //fractal3.c
 void	burning_ship(t_global *g);
+
+//redraw.c
+void	new_image(t_global *g);
 
 #endif
