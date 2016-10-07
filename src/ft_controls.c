@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:18:21 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:33:00 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,12 @@ int		quitwin(void)
 
 void	re_init(t_global *g)
 {
-	g->fract.c_real = -0.7;
-	g->fract.c_im = -0.27015;
-	g->fract.new_real = 0;
-	g->fract.new_im = 0;
-	g->fract.old_real = 0;
-	g->fract.old_im = 0;
+	//g->fract.c_real = -0.7;
+	//g->fract.c_im = -0.27015;
+	//g->fract.new_real = 0;
+	//g->fract.new_im = 0;
+	//g->fract.old_real = 0;
+	//g->fract.old_im = 0;
 	g->mlx.x = 0;
 	g->mlx.y = 0;	
 }
@@ -39,13 +39,13 @@ int		key_press(int keycode, t_global *g)
 	if (keycode == KB_ESC)
 		exit(0);
 	if (keycode == KB_LEFT)
-		g->fract.move_x -= 0.4 / ZOOM;
+		g->fract.move_x -= 0.2 / ZOOM;
 	if (keycode == KB_RIGHT)
-		g->fract.move_x += 0.4 / ZOOM;
+		g->fract.move_x += 0.2 / ZOOM;
 	if (keycode == KB_UP)
-		g->fract.move_y += 0.4 / ZOOM;
+		g->fract.move_y += 0.2 / ZOOM;
 	if (keycode == KB_DOWN)
-		g->fract.move_y -= 0.4 / ZOOM;
+		g->fract.move_y -= 0.2 / ZOOM;
 	if (keycode == KB_R)
 	{
 		g->fract.move_x = 0;

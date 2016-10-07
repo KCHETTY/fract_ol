@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 10:23:22 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:28:14 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init(t_global *g)
 	g->fract.win_w = WIN_W;
 	g->fract.old_im = 0;
 	g->mlx.x = 0;
-	g->fract.lock_state = 0;
+	g->fract.lock_state = 1;
 	g->fract.move_y = 0;
 	g->fract.move_x = 0;
 	g->mlx.y = 0;
@@ -53,9 +53,9 @@ int		main(int argc, char **argv)
 {
 	t_global	g;
 
-	g.fract.str = argv[1];
 	if (argc == 2)
 	{
+		g.fract.str = argv[1];
 		init(&g);
 		//mlx_expose_hook(g.mlx.mlx, &expose, &g);
 		mlx_hook(g.mlx.win, 2, (1L << 0), &key_press, &g);
