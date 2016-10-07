@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:28:14 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:51:24 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int       expose(t_global *g)
 	if (g->mlx.win && g->mlx.img)
 	{
 		ft_putstr("Creating Image");
-		mlx_clear_window(0, g->mlx.win);
+		mlx_clear_window(g->mlx.mlx , g->mlx.win);
 		mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
 	}
 	return (0);
@@ -57,7 +57,7 @@ int		main(int argc, char **argv)
 	{
 		g.fract.str = argv[1];
 		init(&g);
-		//mlx_expose_hook(g.mlx.mlx, &expose, &g);
+		mlx_expose_hook(g.mlx.win, &expose, &g);
 		mlx_hook(g.mlx.win, 2, (1L << 0), &key_press, &g);
 		mlx_hook(g.mlx.win, 3, (1L << 1), &key_release, NULL);
 		mlx_hook(g.mlx.win, 17, 0L, &quitwin, &g.mlx);
