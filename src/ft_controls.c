@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:57:17 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 08:26:10 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,14 @@ int		quitwin(void)
 	exit(0);
 }
 
-
 int		key_press(int keycode, t_global *g)
 {
-	
-
-	printf("%d\n", keycode);
-
 	if (keycode == KB_ESC)
 		exit(0);
 	if (keycode == KB_LEFT)
-		g->fract.move_x -= 0.2 / ZOOM;
-	if (keycode == KB_RIGHT)
 		g->fract.move_x += 0.2 / ZOOM;
+	if (keycode == KB_RIGHT)
+		g->fract.move_x -= 0.2 / ZOOM;
 	if (keycode == KB_UP)
 		g->fract.move_y += 0.2 / ZOOM;
 	if (keycode == KB_DOWN)
@@ -42,9 +37,6 @@ int		key_press(int keycode, t_global *g)
 	}
 	if (keycode == KB_L)
 		g->fract.lock_state = !g->fract.lock_state;
-	//if (keycode == )
-	//if (keycode == )	
-		
 
 	new_image(g);
 	return (0);
@@ -52,15 +44,14 @@ int		key_press(int keycode, t_global *g)
 
 int		key_release(int keycode)
 {
-
 	if (keycode == KB_LEFT)
-		printf("LEFT\n");
+		ft_putstr("LEFT\n");
 	if (keycode == KB_RIGHT)
-		printf("RIGHT\n");
+		ft_putstr("RIGHT\n");
 	if (keycode == KB_UP)
-		printf("UP\n");
+		ft_putstr("UP\n");
 	if (keycode == KB_DOWN)
-		printf("DOWN\n");
+		ft_putstr("DOWN\n");
 
 	return (0);
 }
