@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:10:01 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 08:34:50 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 10:29:11 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		mouse_hook(int mouse_move, int x, int y, t_global *g)
 	{
 		g->fract.zoom *= 1.2;
 		g->fract.move_x += 0.625 * (relx / (WIN_W * g->fract.zoom));
-		g->fract.move_y += 0.625 * (relx / (WIN_W * g->fract.zoom));
+		g->fract.move_y += 0.625 * (rely / (WIN_W * g->fract.zoom));
 	}
 	else if (mouse_move == SCROLL_DOWN)
 	{
