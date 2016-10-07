@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 08:57:32 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 09:08:33 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@
 # define SCROLL_DOWN 4
 # define WIN_H 500
 # define WIN_W 700
+# define MAX_ITER 600
 
 typedef struct		s_fract
 {

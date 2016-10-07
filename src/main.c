@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 08:11:41 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 09:01:16 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	init(t_global *g)
 	g->fract.move_y = 0;
 	g->fract.move_x = 0;
 	g->mlx.y = 0;
-	g->mlx.maxiterations = 150;
+	g->mlx.maxiterations = MAX_ITER;
 }
 
 int		main(int argc, char **argv)
