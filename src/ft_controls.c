@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 09:26:37 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:18:21 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,15 +36,15 @@ int		key_press(int keycode, t_global *g)
 
 	printf("%d\n", keycode);
 
-	if (keycode == L_KB_ESC)
+	if (keycode == KB_ESC)
 		exit(0);
-	if (keycode == L_KB_LEFT)
+	if (keycode == KB_LEFT)
 		g->fract.move_x -= 0.4 / ZOOM;
-	if (keycode == L_KB_RIGHT)
+	if (keycode == KB_RIGHT)
 		g->fract.move_x += 0.4 / ZOOM;
-	if (keycode == L_KB_UP)
+	if (keycode == KB_UP)
 		g->fract.move_y += 0.4 / ZOOM;
-	if (keycode == L_KB_DOWN)
+	if (keycode == KB_DOWN)
 		g->fract.move_y -= 0.4 / ZOOM;
 	if (keycode == KB_R)
 	{
@@ -52,7 +52,7 @@ int		key_press(int keycode, t_global *g)
 		g->fract.move_y = 0;
 		g->fract.zoom = ZOOM;
 	}
-	if (keycode == KB_T)
+	if (keycode == KB_L)
 		g->fract.lock_state = !g->fract.lock_state;
 	//if (keycode == )
 	//if (keycode == )	

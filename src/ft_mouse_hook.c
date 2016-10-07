@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:10:01 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 10:23:19 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:18:12 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	if (g->fract.zoom == 0)
 		g->fract.zoom = 0.1;
 
-	if (mouse_move == L_SCROLL_UP)
+	if (mouse_move == SCROLL_UP)
 	{
 		printf("HI\n");
 		g->fract.zoom *= 1.2;
 		g->fract.move_x += 0.625 * (relx / (WIN_W * g->fract.zoom));
 		g->fract.move_y += 0.625 * (relx / (WIN_W * g->fract.zoom));
 	}
-	else if (mouse_move == L_SCROLL_DOWN)
+	else if (mouse_move == SCROLL_DOWN)
 	{
 		g->fract.zoom /= 1.2;
 		g->fract.move_x -= (relx / (WIN_W * g->fract.zoom));
@@ -64,7 +64,7 @@ int		mouse_move(int x, int y, t_global *g)
 {
 
 	if (x <= WIN_W && x >= 0
-			&& y <= WIN_H && y >= 0 && !env->lock_state)
+			&& y <= WIN_H && y >= 0 && !g->fract.lock_state)
 	{
 		if (g->fract.zoom == 1)
 		{

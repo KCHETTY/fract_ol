@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/06 10:23:24 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:20:28 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define KB_LEFT 124
 # define KB_RIGHT 123
 # define KB_R 15
+# define KB_L 17
 
 # define L_KB_ESC 65307
 # define L_KB_SPACE 32
