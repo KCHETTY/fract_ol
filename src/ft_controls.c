@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 09:12:26 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 10:05:18 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ int		key_press(int keycode, t_global *g)
 	}
 	if (keycode == KB_L)
 		g->fract.lock_state = !g->fract.lock_state;
+	if (keycode == KB_INC)
+		mod_colour(keycode, g);
+	if (keycode == KB_DEC)
+		mod_colour(keycode, g);
 	new_image(g);
 	return (0);
 }

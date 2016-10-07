@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 09:42:16 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 10:03:12 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,8 @@
 # define MAX_ITER 600
 # define RED 1
 # define BLUE 1
+# define KB_INC 35
+# define KB_DEC 46
 # define GREEN 1
 
 typedef struct		s_fract
@@ -134,6 +136,7 @@ int					mouse_move(int x, int y, t_global *g);
 */
 void				get_colour(t_global *g, int i);
 void				get_colour2(t_global *g);
+void				mod_colour(int keycode, t_global *g);
 
 /*
 **draw.c
