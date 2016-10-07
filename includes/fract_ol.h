@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 08:26:14 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 08:36:51 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ typedef	struct	s_global
 }				t_global;
 
 //julia.c
-void	Julia(t_global *g);
+void	julia(t_global *g);
 
 //mandelbrot.c
-void	Mandelbrot(t_global *g);
+void	mandelbrot(t_global *g);
 
 //main.c
 int		main(int argc, char **argv);

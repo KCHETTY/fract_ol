@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:30 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:29:44 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 08:38:14 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int		julia_iterations(t_global *g)
 			g->fract.old_im * g->fract.old_im + g->fract.c_real;
 		g->fract.new_im = 2 * g->fract.old_real * g->fract.old_im +
 			g->fract.c_im;
-		if(sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im *
-					g->fract.new_im)  > 4)
+		if (sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im *
+					g->fract.new_im) > 4)
 		{
 			get_colour(g, i);
 			return (1);
@@ -36,11 +36,8 @@ int		julia_iterations(t_global *g)
 	return (0);
 }
 
-void	Julia(t_global *g)
+void	julia(t_global *g)
 {
-
-	printf("IM HERE\n");
-
 	while (g->mlx.y < WIN_H)
 	{
 		g->mlx.x = 0;
