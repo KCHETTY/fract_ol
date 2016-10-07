@@ -6,25 +6,25 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:53:39 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 08:11:41 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 
-int       expose(t_global *g)
+int		expose(t_global *g)
 {
 	if (g->mlx.win && g->mlx.img)
 	{
 		ft_putstr("Creating Image");
-		mlx_clear_window(g->mlx.mlx , g->mlx.win);
+		mlx_clear_window(g->mlx.mlx, g->mlx.win);
 		mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
 	}
 	return (0);
 }
 
 void	init(t_global *g)
-{	
+{
 	g->mlx.mlx = mlx_init();
 	g->mlx.win = mlx_new_window(g->mlx.mlx, WIN_W, WIN_H, "Fract_ol");
 	g->mlx.img = mlx_new_image(g->mlx.mlx, WIN_W, WIN_H);
@@ -36,8 +36,6 @@ void	init(t_global *g)
 	g->fract.new_real = 0;
 	g->fract.new_im = 0;
 	g->fract.old_real = 0;
-//	g->fract.mapped_point_x = -0.7;
-//	g->fract.mapped_point_y = -0.27015;
 	g->fract.win_h = WIN_H;
 	g->fract.win_w = WIN_W;
 	g->fract.old_im = 0;
@@ -53,7 +51,8 @@ int		main(int argc, char **argv)
 {
 	t_global	g;
 
-	if (argc == 2)
+	if (argc == 2 && (ft_strcmp(argv[1], "A") == 0 ||
+				ft_strcmp(argv[1], "B") == 0 || ft_strcmp(argv[1], "C") == 0))
 	{
 		g.fract.str = argv[1];
 		init(&g);
@@ -66,6 +65,12 @@ int		main(int argc, char **argv)
 		mlx_loop(g.mlx.mlx);
 	}
 	else
-		printf("CHODE!!");
+	{
+		ft_putstr("Incorrect input!..\n");
+		ft_putstr("Use: ./fractol A or B or C\n");
+		ft_putstr("A: Mandelbrot set\n");
+		ft_putstr("B: Julia set\n");
+		ft_putstr("C: Burning Ship\n");
+	}
 	return (0);
 }
