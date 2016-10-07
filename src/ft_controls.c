@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:09 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:53:17 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:57:17 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,10 @@ int		quitwin(void)
 	exit(0);
 }
 
-void	re_init(t_global *g)
-{
-	//g->fract.c_real = -0.7;
-	//g->fract.c_im = -0.27015;
-	//g->fract.new_real = 0;
-	//g->fract.new_im = 0;
-	//g->fract.old_real = 0;
-	//g->fract.old_im = 0;
-	g->mlx.x = 0;
-	g->mlx.y = 0;	
-}
 
 int		key_press(int keycode, t_global *g)
 {
 	
-	re_init(g);
 
 	printf("%d\n", keycode);
 

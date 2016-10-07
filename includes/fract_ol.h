@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:35:50 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:57:49 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ int		main(int argc, char **argv);
 void	init(t_global *g);
 
 //controls.c
-void	re_init(t_global *g);
 int		key_press(int keycode, t_global *g);
 int		key_release(int keycode);
 int		quitwin(void);

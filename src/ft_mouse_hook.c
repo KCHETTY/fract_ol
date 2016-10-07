@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:10:01 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 07:40:52 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 07:57:25 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	mouse_hook(int mouse_move, int x, int y, t_global *g)
 	rely = y - (WIN_H / 2);
 
 	printf("%f and %f\n", relx, rely);
-	re_init(g);
 	if (g->fract.zoom == 0)
 		g->fract.zoom = 0.1;
 
@@ -64,7 +63,6 @@ int		mouse_move(int x, int y, t_global *g)
 {
 	if ((x <= WIN_W && x >= 0) && (y <= WIN_H && y >= 0 ) && (!g->fract.lock_state))
 	{
-		re_init(g);
 		if (g->fract.zoom == 1)
 		{
 			g->fract.point_x = x;
