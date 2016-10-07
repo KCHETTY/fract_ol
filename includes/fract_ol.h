@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 10:03:12 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 13:33:10 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define KB_RIGHT 124
 # define KB_R 15
 # define KB_L 37
+# define KB_I 1
 # define L_KB_ESC 65307
 # define L_KB_SPACE 32
 # define L_KB_UP 65362
@@ -76,6 +77,7 @@ typedef struct		s_fract
 
 typedef	struct		s_mlx
 {
+	int				invert;
 	void			*mlx;
 	void			*win;
 	int				x;
