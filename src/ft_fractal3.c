@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_fractal3.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/10/07 08:41:12 by kchetty           #+#    #+#             */
+/*   Updated: 2016/10/07 08:44:32 by kchetty          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fract_ol.h"
 
@@ -10,12 +21,15 @@ int		b_ship_iterations(t_global *g)
 	{
 		g->fract.old_real = fabs(g->fract.new_real);
 		g->fract.old_im = fabs(g->fract.new_im);
-		g->fract.new_real = g->fract.old_real * g->fract.old_real - g->fract.old_im * g->fract.old_im + g->fract.c_real;
-		g->fract.new_im = 2 * g->fract.old_real * g->fract.old_im + g->fract.c_im;
-		if (sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im * g->fract.new_im) > 3)
+		g->fract.new_real = g->fract.old_real * g->fract.old_real -
+			g->fract.old_im * g->fract.old_im + g->fract.c_real;
+		g->fract.new_im = 2 * g->fract.old_real * g->fract.old_im +
+			g->fract.c_im;
+		if (sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im *
+					g->fract.new_im) > 4)
 		{
 			get_colour(g, i);
-			return (1);	
+			return (1);
 		}
 		i++;
 	}
@@ -29,16 +43,16 @@ void	burning_ship(t_global *g)
 		g->mlx.x = 0;
 		while (g->mlx.x < WIN_W)
 		{
-			g->fract.c_real = 1.5 * (g->mlx.x - WIN_W / 2) / (0.5 * g->fract.zoom * WIN_W) + g->fract.move_x;
-			g->fract.c_im = (g->mlx.y - WIN_H / 2) / (0.5 * g->fract.zoom * WIN_H) + g->fract.move_y;
+			g->fract.c_real = 1.5 * (g->mlx.x - WIN_W / 2) /
+				(0.5 * g->fract.zoom * WIN_W) + g->fract.move_x;
+			g->fract.c_im = (g->mlx.y - WIN_H / 2) /
+				(0.5 * g->fract.zoom * WIN_H) + g->fract.move_y;
 			g->fract.new_real = 0;
 			g->fract.new_im = 0;
 			g->fract.old_real = 0;
 			g->fract.old_im = 0;
-
 			if (!b_ship_iterations(g))
 				get_colour2(g);
-			
 			g->mlx.x++;
 		}
 		g->mlx.y++;
