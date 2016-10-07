@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/29 08:10:02 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 09:01:16 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 09:42:18 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int		expose(t_global *g)
 {
 	if (g->mlx.win && g->mlx.img)
 	{
-		ft_putstr("Creating Image");
+		ft_putstr("Creating Image\n");
 		mlx_clear_window(g->mlx.mlx, g->mlx.win);
 		mlx_put_image_to_window(g->mlx.mlx, g->mlx.win, g->mlx.img, 0, 0);
 	}
@@ -44,6 +44,9 @@ void	init(t_global *g)
 	g->fract.move_y = 0;
 	g->fract.move_x = 0;
 	g->mlx.y = 0;
+	g->mlx.red = RED;
+	g->mlx.blue = BLUE;
+	g->mlx.green = GREEN;
 	g->mlx.maxiterations = MAX_ITER;
 }
 

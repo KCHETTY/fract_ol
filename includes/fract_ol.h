@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/09/27 12:00:45 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 09:08:33 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 09:42:16 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@
 # define WIN_H 500
 # define WIN_W 700
 # define MAX_ITER 600
+# define RED 1
+# define BLUE 1
+# define GREEN 1
 
 typedef struct		s_fract
 {
@@ -82,9 +85,9 @@ typedef	struct		s_mlx
 	int				bpp;
 	unsigned int	color;
 	int				size_line;
-	int				red;
-	int				green;
-	int				blue;
+	unsigned int	red;
+	unsigned int	green;
+	unsigned int	blue;
 	int				endian;
 	int				maxiterations;
 

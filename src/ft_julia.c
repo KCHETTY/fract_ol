@@ -6,7 +6,7 @@
 /*   By: kchetty <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/10/04 08:09:30 by kchetty           #+#    #+#             */
-/*   Updated: 2016/10/07 08:38:14 by kchetty          ###   ########.fr       */
+/*   Updated: 2016/10/07 09:29:40 by kchetty          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		julia_iterations(t_global *g)
 		if (sqrt(g->fract.new_real * g->fract.new_real + g->fract.new_im *
 					g->fract.new_im) > 4)
 		{
-			get_colour(g, i);
+			get_colour(g, i + 6);
 			return (1);
 		}
 		i++;
