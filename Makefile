@@ -6,13 +6,13 @@
 #    By: arnovan- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/05/25 11:55:33 by arnovan-          #+#    #+#              #
-#    Updated: 2016/10/06 08:00:42 by kchetty          ###   ########.fr        #
+#    Updated: 2016/10/07 07:41:06 by kchetty          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=fract_ol
 
-CC=gcc
+CC=clang
 
 CFLAGS=-Wall -Wextra -Werror -g
 
